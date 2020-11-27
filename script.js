@@ -13,20 +13,21 @@ window.addEventListener("load",function(){
       response.json().then(function(json) {  
          const output = document.getElementById("missionTarget") ;
          //for (let i=0; i<=json.length-1; i++) {}
+         let index = Math.floor(Math.random()*json.length);     
          output.innerHTML = 
          `<h2>Mission Destination</h2>         
             <ol>
-               <li>Name: ${json[0].name}</li>
-               <li>Diameter: ${json[0].diameter}</li>
-               <li>Star: ${json[0].star}</li>
-               <li>Distance from Earth: ${json[0].distance}</li>
-               <li>Number of Moons: ${json[0].moons}</li>
+               <li>Name: ${json[index].name}</li>
+               <li>Diameter: ${json[index].diameter}</li>
+               <li>Star: ${json[index].star}</li>
+               <li>Distance from Earth: ${json[index].distance}</li>
+               <li>Number of Moons: ${json[index].moons}</li>
             </ol>
-            <img src="${json[0].image}"></img>
+            <img src="${json[index].image}"></img>
          `
       });
       
-   }); 
+   });
    form.addEventListener("submit", function(event){
       event.preventDefault();
       let pilotNameInput = document.querySelector("input[name=pilotName]");
